@@ -15,7 +15,7 @@ export default function Home() {
   return (
     <main>
       <Header />
-      <div className="h-[calc(100vh-64px)] p-4 gap-4 w-screen bg-[url('/images/rio.jpg')] bg-cover text-center flex flex-col justify-evenly">
+      <div className="h-[calc(80vh)] p-4 gap-4 w-screen bg-[url('/images/rio-de-janeiro.jpg')] bg-no-repeat bg-center bg-cover text-center flex flex-col justify-evenly">
         <MainPage />
       </div>
 

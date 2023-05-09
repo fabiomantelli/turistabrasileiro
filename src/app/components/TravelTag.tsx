@@ -20,20 +20,20 @@ interface TitleProps {
 
 function TraveTag({ title, subTitle, image }: TitleProps) {
   return (
-    <div className="relative flex flex-col justify-end lg:max-w-sm gap-2 h-96 px-4 py-8 m-4 overflow-hidden rounded-lg">
+    <div className="relative flex flex-col justify-end lg:max-w-sm gap-2 h-72 px-4 py-8 m-4 overflow-hidden rounded-lg">
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{ backgroundImage: `url(${image})` }}
       ></div>
       <div className="absolute inset-0 bg-black opacity-50"></div>
       <strong
-        className={`${rubik.className} text-xl ml-[5%] text-white isolate`}
+        className={`${rubik.className} text-xl text-white isolate`}
       >
         {title}
       </strong>
-      <p className="ml-[5%] text-white isolate">{subTitle}</p>
+      <p className="text-white isolate">{subTitle}</p>
       <button
-        className={`${lato.className} font-normal h-10 bg-slate-100 w-[90%] ml-[5%] isolate`}
+        className={`${lato.className} font-normal h-10 bg-slate-100 isolate`}
       >
         SHOP NOW
       </button>

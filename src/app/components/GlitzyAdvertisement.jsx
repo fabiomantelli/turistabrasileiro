@@ -10,7 +10,7 @@ const rubik = Rubik({
 function GlitzyAdvertisement() {
   return (
     <div className="text-center m-4 flex flex-col items-center gap-4">
-      <div className="md:flex md:text-start md:max-w-5xl gap-6">
+      <div className="md:flex md:text-start max-w-5xl gap-6">
         <h1 className={`${rubik.className} font-bold text-4xl mb-4`}>
           Descubra as Maravilhas do Turismo no Brasil: Praias deslumbrantes,
           natureza exuberante e rica cultura esperam por você!
@@ -33,9 +33,9 @@ function GlitzyAdvertisement() {
         <Image
           src="/images/rio-de-janeiro-2.jpg"
           alt="Rio de Janeiro"
-          width={1000}
+          width={1024}
           height={700}
-          sizes="(max-width: 1000px) 100vw"
+          sizes="(max-width: 1024px)"
         />
     </div>
   );

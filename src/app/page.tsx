@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { GiWorld } from "react-icons/gi";
 import { MdOutlineHighQuality, MdOutlineLocalOffer } from "react-icons/md";
 import { GrSecure } from "react-icons/gr";
@@ -13,6 +12,7 @@ import EmailSubscriptionForm from "./components/EmailSubscriptionForm";
 import Footer from "./components/Footer";
 import FamousInBrazil from "./components/FamousInBrazil";
 import Locality from "./components/Locality";
+import City from "./components/City";
 
 export default function Home() {
   return (
@@ -46,6 +46,26 @@ export default function Home() {
             title="Turismo"
             description="Explore as Maravilhas de Foz do Iguaçu: Natureza e Cataratas impressionantes e experiências inesquecíveis!"
             image="/images/tourism.jpg"
+          />
+        </div>
+      </section>
+
+      <section className="flex justify-center">
+        <div className="grid md:grid-cols-3">
+          <City
+            title="Fortaleza - CE"
+            description="Fortaleza: Descubra as Belezas da Capital do Ceará, Praias Deslumbrantes, Cultura Vibrante e Gastronomia Deliciosa!"
+            image="/images/ceara.jpg"
+          />
+          <City
+            title="Florianópolis - SC"
+            description="Descubra as Maravilhas de Santa Catarina: Praias deslumbrantes, natureza exuberante e cultura encantadora!"
+            image="/images/florianopolis2.jpg"
+          />
+          <City
+            title="Rio de Janeiro - RJ"
+            description="Experiencie a Magia do Rio de Janeiro: Praias icônicas, paisagens deslumbrantes e energia contagiante!"
+            image="/images/rio-de-janeiro-3.jpg"
           />
         </div>
       </section>

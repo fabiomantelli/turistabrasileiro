@@ -21,7 +21,7 @@ interface TitleProps {
 
 function TraveTag({ title, subTitle, image }: TitleProps) {
   return (
-    <div className={`border-red-500 border-2 flex flex-col justify-end gap-2 h-72 pl-2 pr-2 pb-6 ml-4 mr-4 mb-4 bg-cover bg-center`} style={{ backgroundImage: `url(${image})` }} >
+    <div className={`flex flex-col justify-end lg:max-w-sm gap-2 h-72 pl-2 pr-2 pb-6 ml-4 mr-4 mb-4 bg-cover overflow-hidden rounded-lg bg-center`} style={{ backgroundImage: `url(${image})` }} >
       <strong className={`${rubik.className} text-xl ml-[5%] text-white`}>
         {title}
       </strong>

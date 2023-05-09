@@ -21,7 +21,7 @@ const lato = Lato({
 function Discount({ image, title, discount }: DiscountProps) {
   return (
     <div
-      className={`flex flex-col justify-evenly gap-2 h-96 pl-2 pr-2 pb-6 bg-cover bg-center ml-4 mr-4 mb-4`}
+      className={`flex flex-col justify-evenly gap-2 h-96 pl-2 pr-2 pb-6 bg-cover bg-center bg-fixed ml-4 mr-4 mb-4`}
       style={{ backgroundImage: `url(${image})` }}
     >
       <h2 className="pl-2 m-2 text-white">Limited Time Offer</h2>

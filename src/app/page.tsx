@@ -72,7 +72,7 @@ export default function Home() {
 
       <section className="flex flex-col items-center">
         <Discount
-          image="/images/rio.jpg"
+          image="/images/rio-de-janeiro-2.jpg"
           title="Special Edition"
           discount="Buy This T-Shirt At 20% Discount, Use code OFF2O"
         />

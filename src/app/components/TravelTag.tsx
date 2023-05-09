@@ -13,23 +13,27 @@ const lato = Lato({
 });
 
 interface TitleProps {
-    title: string;
-    subTitle :string;
-    image: string;
+  title: string;
+  subTitle: string;
+  image: string;
 }
-
 
 function TraveTag({ title, subTitle, image }: TitleProps) {
   return (
-    <div className={`flex flex-col justify-end lg:max-w-sm gap-2 h-72 pl-2 pr-2 pb-6 ml-4 mr-4 mb-4 bg-cover overflow-hidden rounded-lg bg-center`} style={{ backgroundImage: `url(${image})` }} >
-      <strong className={`${rubik.className} text-xl ml-[5%] text-white`}>
+    <div className="relative flex flex-col justify-end lg:max-w-sm gap-2 h-96 px-4 py-8 m-4 overflow-hidden rounded-lg">
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: `url(${image})` }}
+      ></div>
+      <div className="absolute inset-0 bg-black opacity-50"></div>
+      <strong
+        className={`${rubik.className} text-xl ml-[5%] text-white isolate`}
+      >
         {title}
       </strong>
-      <p className="ml-[5%] text-white">
-        {subTitle}
-      </p>
+      <p className="ml-[5%] text-white isolate">{subTitle}</p>
       <button
-        className={`${lato.className} font-normal h-10 bg-slate-100 w-[90%] ml-[5%]`}
+        className={`${lato.className} font-normal h-10 bg-slate-100 w-[90%] ml-[5%] isolate`}
       >
         SHOP NOW
       </button>

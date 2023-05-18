@@ -1,4 +1,5 @@
-import Image from "next/image";
+import { Rubik } from "next/font/google";
+
 import { GiWorld } from "react-icons/gi";
 import { MdOutlineHighQuality, MdOutlineLocalOffer } from "react-icons/md";
 import { GrSecure } from "react-icons/gr";
@@ -14,7 +15,38 @@ import Footer from "./components/Footer";
 import FamousInBrazil from "./components/FamousInBrazil";
 import Locality from "./components/Locality";
 
-export default function Home() {
+const rubik = Rubik({
+  subsets: ["latin"],
+  variable: "--font-rubik",
+  weight: ["400", "700"],
+});
+
+export async function getData() {
+  const res = await fetch("https://turistabrasileiro.com/wp-json/wp/v2/posts", {
+    next: {
+      revalidate: 60,
+    },
+  });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
+  const data = await getData();
+
+  const modifiedData = data.map(item => ({
+    ...item,
+    content: {
+      ...item.content,
+      rendered: item.content.rendered.replace(/\\n<p>/g, '').replace(/<\/p>\\n/g, ''),
+    }
+  }));
+
+  console.log(modifiedData)
+
   return (
     <main>
       <Header />
@@ -67,6 +99,16 @@ export default function Home() {
             subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin acdictum."
             image="/images/blumenau.jpg"
           />
+          {modifiedData.map((item) => (
+            <TraveTag key={item.id} image="/images/blumenau.jpg">
+              <strong
+                className={`${rubik.className} text-xl ml-[5%] text-white isolate`}
+              >
+                {item.title.rendered}
+              </strong>
+              <p className="ml-[5%] text-white isolate">{item.content.rendered}</p>
+            </TraveTag>
+          ))}
         </div>
       </section>
 

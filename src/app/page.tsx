@@ -42,7 +42,6 @@ export default async function Home() {
 
   return (
     <main>
-      <Header />
       <div className="h-screen bg-[url('/images/rio-de-janeiro.jpg')] bg-no-repeat bg-center bg-cover bg-fixed text-center flex flex-col justify-evenly">
         <MainPage />
       </div>

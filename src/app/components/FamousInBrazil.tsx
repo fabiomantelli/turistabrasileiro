@@ -9,7 +9,7 @@ const rubik = Rubik({
 function FamousInBrazil() {
   return (
     <div className="m-4 p-4 text-center md:text-start">
-      <h1 className={`${rubik.className} font-bold text-4xl text-center mb-8`}>O litoral brasileiro é famoso por suas praias paradisíacas</h1>
+      <h1 className={`${rubik.className} font-bold text-2xl text-center mb-8`}>O litoral brasileiro é famoso por suas praias paradisíacas</h1>
       <div className="flex flex-col md:flex-row">
       <div className="p-4">
         <h2 className="font-bold text-lg mb-2">

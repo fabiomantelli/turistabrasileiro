@@ -1,11 +1,10 @@
-import Image from "next/image";
 import { GiWorld } from "react-icons/gi";
 import { MdOutlineHighQuality, MdOutlineLocalOffer } from "react-icons/md";
 import { GrSecure } from "react-icons/gr";
 
 import Header from "./components/Header";
 import GlitzyAdvertisement from "./components/GlitzyAdvertisement";
-import TraveTag from "./components/TravelTag";
+import TravelTag from "./components/TravelTag";
 import MainPage from "./components/MainPage";
 import Discount from "./components/Discount";
 import ItensTag from "./components/ItensTag";
@@ -15,11 +14,15 @@ import FamousInBrazil from "./components/FamousInBrazil";
 import Locality from "./components/Locality";
 import City from "./components/City";
 
-const rubik = Rubik({
-  subsets: ["latin"],
-  variable: "--font-rubik",
-  weight: ["400", "700"],
-});
+interface DataProps {
+  id: number;
+  title: {
+    rendered: string;
+  };
+  content: {
+    rendered: string;
+  };
+}
 
 export async function getData() {
   const res = await fetch("https://turistabrasileiro.com/wp-json/wp/v2/posts", {
@@ -36,16 +39,6 @@ export async function getData() {
 
 export default async function Home() {
   const data = await getData();
-
-  const modifiedData = data.map(item => ({
-    ...item,
-    content: {
-      ...item.content,
-      rendered: item.content.rendered.replace(/\\n<p>/g, '').replace(/<\/p>\\n/g, ''),
-    }
-  }));
-
-  console.log(modifiedData)
 
   return (
     <main>
@@ -104,30 +97,8 @@ export default async function Home() {
 
       <section className="flex justify-center">
         <div className="grid md:grid-cols-3">
-          <TraveTag
-            title="Let's Lorem Suit Up!"
-            subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin acdictum."
-            image="/images/noronha.jpg"
-          />
-          <TraveTag
-            title="Let's Lorem Suit  Up!"
-            subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin acdictum."
-            image="/images/urubici.jpg"
-          />
-          <TraveTag
-            title="The Blue Man Now"
-            subTitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin acdictum."
-            image="/images/blumenau.jpg"
-          />
-          {modifiedData.map((item) => (
-            <TraveTag key={item.id} image="/images/blumenau.jpg">
-              <strong
-                className={`${rubik.className} text-xl ml-[5%] text-white isolate`}
-              >
-                {item.title.rendered}
-              </strong>
-              <p className="ml-[5%] text-white isolate">{item.content.rendered}</p>
-            </TraveTag>
+          {data.map((item: DataProps) => (
+            <TravelTag key={item.id} item={item} />
           ))}
         </div>
       </section>
